@@ -21,3 +21,4 @@ insecure                # Allow all DB writes from clients (for prototyping)
 kadira:blaze-layout
 kadira:flow-router
 less
+arillo:flow-router-helpers
