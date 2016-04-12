@@ -1,4 +1,4 @@
-.button-preset {
+%button-preset {
   letter-spacing: 0.1em;
   font-weight: 300;
   margin: 10px;
@@ -8,22 +8,22 @@
 
 }
 
-.button-border (@color,@border-size){
-  .button-preset;
-  color:@color;
-  border: @border-size @color solid;
+@mixin button-border ($color,$border-size){
+  @extend %button-preset;
+  color:$color;
+  border: $border-size $color solid;
   &:hover {
-    background-color: @color;
+    background-color: $color;
     color:#000;
   }
 }
 
-.button-border-bottom (@color,@border-size){
-  .button-preset;
-  color:@color;
-  border-bottom: @border-size @color solid;
+@mixin button-border-bottom ($color,$border-size){
+  @extend %button-preset;
+  color:$color;
+  border-bottom: $border-size $color solid;
   &:hover {
-    background-color: @color;
+    background-color: $color;
     color:#000;
   }
 }

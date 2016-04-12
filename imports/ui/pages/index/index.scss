@@ -1,5 +1,5 @@
-@import "../../stylesheets/variables.less";
-@import "../../stylesheets/buttons.less";
+@import  "../../stylesheets/variables.scss";
+@import  "../../stylesheets/buttons.scss";
 
 #__blaze-root, body, html {
   margin: 0;
@@ -12,7 +12,7 @@
   height: 100%;
   min-height: 100%;
   background: url('mountain.jpg')   no-repeat center center fixed;
-  font-family: @primary-font;
+  font-family: $primary-font;
   background-size: cover;
 }
 
@@ -35,38 +35,38 @@
 }
 
 .landing .header .brand {
-  font-family: @head-font;
-  color:@white-color;
+  font-family: $head-font;
+  color:$white-color;
   font-size: 2em;
   float: left;
 }
 
 .landing .header .links {
-    float: right;
+  float: right;
   line-height: 2.5em;
 }
 
 .landing .links a {
-  .button-small;
-  .button-border-bottom(#fff,1px);
+  @extend .button-small;
+  @include button-border-bottom(#fff,1px);
 }
 
 .landing .description .title {
   margin-bottom: 20px;
-  color: @white-color;
+  color: $white-color;
   font-size: 4em;
 }
 
 .landing .description .startup {
-  color:@yellow-color;
+  color:$yellow-color;
 }
 
 .landing .join {
-  .button-large;
-  .button-border(@yellow-color,1px);
+  @extend .button-large;
+  @include button-border($yellow-color,1px);
 }
 
 .landing .login {
-  .button-large;
-  .button-border(@white-color,1px);
+  @extend .button-large;
+  @include button-border($white-color,1px);
 }
