@@ -8,7 +8,7 @@
 
 }
 
-@mixin button-border ($color,$border-size){
+@mixin button-border ($color,$border-size: 1px){
   @extend %button-preset;
   color:$color;
   border: $border-size $color solid;
@@ -18,7 +18,7 @@
   }
 }
 
-@mixin button-border-bottom ($color,$border-size){
+@mixin button-border-bottom ($color,$border-size : 1px){
   @extend %button-preset;
   color:$color;
   border-bottom: $border-size $color solid;
@@ -29,16 +29,16 @@
 }
 
 .button-large {
-  font-size: 1.5em;
+  font-size: 24px;
   padding: 2px 40px;
 }
 
 .button-medium {
-  font-size: 1.1em;
+  font-size: 18px;
   padding: 3px 35px;
 }
 
 .button-small {
-  font-size: 0.9em;
-  padding: 5px 30px;
+  font-size: 13px;
+  padding: 5px 20px;
 }

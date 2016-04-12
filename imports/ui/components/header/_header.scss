@@ -1,0 +1,23 @@
+.header-component {
+  min-height: 50px;
+  color: $white-color;
+  background: $dark-color;
+  font-family: $primary-font;
+
+  .brand a{
+    font-family: $head-font;
+    line-height: 50px;
+    font-size: 2em;
+    float: left;
+    padding-left: 15px;
+  }
+  .links {
+    float: right;
+  }
+  .links a {
+    line-height: 50px;
+    vertical-align: middle;
+    @include button-border($white-color);
+    @extend .button-small;
+  }
+}

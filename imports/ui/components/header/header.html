@@ -1,5 +1,13 @@
 <template name="header">
-  <div class="header">
-    hello
+  <div class="header-component">
+    <div class="brand">
+      <a href="#">Tempel</a>
+    </div>
+    <div class="links">
+      <a href="{{pathFor 'signin'}}">Sign in</a>
+      <a href="{{pathFor 'signup'}}">Sign Up</a>
+      <a href="{{pathFor 'about'}}">About</a>
+      <a href="{{pathFor 'contact'}}">Contact</a>
+    </div>
   </div>
 </template>
