@@ -7,12 +7,7 @@
     overflow: hidden;
 
     .file-label {
-      margin: 4px 0 20px 0;
-      padding: 8px 16px;
-      display: block;
-      width: 122px;
-      border: 1px solid $light-color;
-      color: $light-color;
+      @extend .file-label
     }
 
     button {

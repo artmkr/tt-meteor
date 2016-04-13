@@ -11,8 +11,24 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
   padding: 8px 16px;
   margin: 4px 0 20px 0;
   box-sizing: border-box;
+  &:hover {
+    border-color:darken($light-color,20%);
+  }
 }
 
 input[type='file'] {
   display: none;
+}
+
+.file-label {
+  margin: 4px 0 20px 0;
+  padding: 8px 16px;
+  display: block;
+  width: 122px;
+  border: 1px solid $light-color;
+  color: $light-color;
+  &:hover {
+    border-color:darken($light-color,20%);
+    color: darken($light-color,20%);
+  }
 }
