@@ -1,7 +1,7 @@
-@mixin block($width){
+@mixin block($width,$margin-x-left:auto,$margin-x-right:auto){
   width: $width;
   min-width: 300px;
-  margin: 2% auto;
+  margin: 2% $margin-x-right 2% $margin-x-left;
   padding: 20px 30px 40px 30px ;
   border: 1px solid lighten($light-color,10%);
   background-color: $white-color;

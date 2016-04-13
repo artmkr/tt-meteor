@@ -1,5 +1,5 @@
 <template name="signup">
-  <div class="block">
+  <div class="signup-page">
     <form>
       {{#if errorMessages}}
         <div class="list-errors">
@@ -8,7 +8,7 @@
           {{/each}}
         </div>
       {{/if}}
-      
+
       <label for="name">Name</label>
       <input type="text" name="name" placeholder="Your name">
       <label for="name">Email</label>
