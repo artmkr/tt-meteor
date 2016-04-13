@@ -1,5 +1,7 @@
 <template name="main">
   {{>header}}
-  {{>Template.dynamic template=content}}
+  <div class="content">
+    {{>yield}}
+  </div>
   {{>footer}}
 </template>

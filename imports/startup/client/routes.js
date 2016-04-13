@@ -1,5 +1,4 @@
-import { FlowRouter } from 'meteor/kadira:flow-router';
-import { BlazeLayout } from 'meteor/kadira:blaze-layout';
+import { Router } from 'meteor/iron:router';
 
 import '/imports/ui/pages/index/index.js'
 import '/imports/ui/pages/signin/signin.js'
@@ -7,23 +6,23 @@ import '/imports/ui/pages/signup/signup.js'
 import '/imports/ui/layouts/main/main.js'
 
 
-FlowRouter.route('/', {
-  name: 'index',
-  action() {
-    BlazeLayout.render('index');
-  },
+
+Router.route('/', function () {
+  this.render('index');
+}, {
+  name: 'index'
 });
 
-FlowRouter.route('/signin', {
-  name: 'signin',
-  action() {
-    BlazeLayout.render('signin');
-  },
+Router.route('/signup', function () {
+  this.layout('main');
+  this.render('signup');
+}, {
+  name: 'signup'
 });
 
-FlowRouter.route('/signup', {
-  name: 'signup',
-  action() {
-    BlazeLayout.render('main', {content: 'signup'});
-  },
+Router.route('/signin', function () {
+  this.layout('main');
+  this.render('signin');
+}, {
+  name: 'signin'
 });
