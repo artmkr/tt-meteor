@@ -1,8 +1,16 @@
 <template name="signin">
   <div class="block">
     <form>
+      {{#if errorMessages}}
+        <div class="list-errors">
+          {{#each errorMessages}}
+            <div class="list-item">{{this}}</div>
+          {{/each}}
+        </div>
+      {{/if}}
+
       <label for="name">Name</label>
-      <input type="text" name="name">
+      <input type="text" name="email">
       <label for="name">Password</label>
       <input type="password" name="password">
       <button type="submit">Log In</button>

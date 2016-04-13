@@ -14,6 +14,9 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
   &:hover {
     border-color:darken($light-color,20%);
   }
+  &.error {
+    border: 1px solid $red-accent-color !important;
+  }
 }
 
 input[type='file'] {

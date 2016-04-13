@@ -1,6 +1,14 @@
 <template name="signup">
   <div class="block">
     <form>
+      {{#if errorMessages}}
+        <div class="list-errors">
+          {{#each errorMessages}}
+            <div class="list-item">{{this}}</div>
+          {{/each}}
+        </div>
+      {{/if}}
+      
       <label for="name">Name</label>
       <input type="text" name="name" placeholder="Your name">
       <label for="name">Email</label>
