@@ -17,12 +17,24 @@ Template.signin.helpers({
 });
 
 Template.signup.events({
-  'submit form': function(event){
+  'submit form': function (event) {
     event.preventDefault();
     var email = $('[name=email]').val();
-    var name  = $('[name=name]').val();
+    var name = $('[name=name]').val();
     var password = $('[name=password]').val();
     var confirmPassword = $('[name=password-confirmation]').val();
+
+    var File = ($('[name=photo]')).get(0).files[0];
+
+    var errors = {};
+
+    var Reader = new FileReader();
+
+    if (File) {
+      Reader.readAsDataURL(File);
+    }
+
+    console.log(Reader)
 
     if (!email) {
       errors.email = 'Email is required';
@@ -46,18 +58,22 @@ Template.signup.events({
       return;
     }
 
-    var user = {
-      name:name,
-      email:email,
-      password:password
-    };
+    Reader.addEventListener("load", function () {
+      var user = {
+        name: name,
+        email: email,
+        password: password,
+        photo: Reader.result
+      };
+      Meteor.call('registerUser', user, function (error, userId) {
+        if (error) {
+          alert('Something went wrong \n contact us');
+        } else {
+          Router.go('index'); //Go to userpage
+        }
+      });
+    }, false);
 
-    Meteor.call('registerUser',user,function(error, userId){
-      if(error){
-        alert('Something went wrong \n contact us');
-      }else{
-        Router.go('index'); //Go to userpage
-      }
-    });
+
   }
 });

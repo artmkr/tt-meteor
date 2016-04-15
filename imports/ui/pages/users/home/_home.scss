@@ -9,6 +9,9 @@
 .user-info {
   @include block(40%,2%,1%);
   flex: 2;
+  img {
+    max-width: 50%;
+  }
 }
 
 .user-block {

@@ -6,14 +6,13 @@ Meteor.methods({
   'registerUser': function (user) {
     check(user, UserSchema);
 
-
     var userId = Accounts.createUser({
       email: user.email,
       password: user.password,
       profile: {
         name: user.name,
         bio: 'hehe',
-        photo: ''
+        photo: user.photo
       },
       projects: [],
       requests: []
@@ -23,3 +22,6 @@ Meteor.methods({
     }
   }
 });
+
+
+

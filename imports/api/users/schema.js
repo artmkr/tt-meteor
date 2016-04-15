@@ -16,5 +16,9 @@ export default UserSchema = new SimpleSchema({
     type: String,
     label: "Password",
     max: 200
+  },
+  photo : {
+    type: String,
+    optional: true
   }
 });
