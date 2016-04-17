@@ -1,8 +1,8 @@
 a {
   text-decoration: none;
-  color: $white-color;
+  color: $dark-color;
   &:hover {
-    color: $light-color;
+    color: $dark-accent-color;
   }
 }
 
@@ -12,4 +12,9 @@ a {
 
 body {
   font-family: $primary-font;
+  color:$dark-color;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 500;
 }

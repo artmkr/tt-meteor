@@ -36,9 +36,6 @@ Router.route('/signin', function () {
 });
 
 Router.route('/home', function () {
-  if (!Meteor.user()) {
-    Router.go('signin');
-  }
   this.layout('main');
   this.render('home');
 }, {

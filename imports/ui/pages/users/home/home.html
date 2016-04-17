@@ -1,14 +1,86 @@
 <template name="home">
   <div class="home">
     <div class="user-info">
-      <img src="{{currentUser.profile.photo}}" alt="">
+      <div class="info">
+        <img src="{{currentUser.profile.photo}}" alt="">
 
-      {{currentUser.profile.name}}
-      <br>
-      #DESCRIPTION
+        <span class="name">{{currentUser.profile.name}}</span>
+      </div>
+      <div class="links">
+        <a class="messages" href="#">Messages </a>
+        <a class="edit" href="#">edit profile</a>
+      </div>
     </div>
     <div class="user-block">
-      current projects and so on
+      <div class="projects-list">
+        <div class="header">
+          Your projects:
+        </div>
+        <div class="project">
+          <div class="project-info">
+            <div class="name">
+              Project Honeycomb
+            </div>
+            <div class="links">
+              <a class="show" href="#">Show </a>
+              <a class="messages" href="#">Messages </a>
+            </div>
+          </div>
+          <div class="description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi atque autem cupiditate dolor dolore
+            ducimus eaque earum eligendi fugit in iste, iusto nulla perspiciatis quibusdam sint, tempora, velit
+            voluptas?
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi atque autem cupiditate dolor dolore
+            ducimus eaque earum eligendi fugit in iste, iusto nulla perspiciatis quibusdam sint, tempora, velit
+            voluptas?
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-info">
+            <div class="name">
+              Project Honeycomb
+            </div>
+            <div class="links">
+              <a class="show" href="#">Show </a>
+              <a class="messages" href="#">Messages </a>
+            </div>
+          </div>
+          <div class="description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi atque autem cupiditate dolor dolore
+            ducimus eaque earum eligendi fugit in iste, iusto nulla perspiciatis quibusdam sint, tempora, velit
+            voluptas?
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi atque autem cupiditate dolor dolore
+            ducimus eaque earum eligendi fugit in iste, iusto nulla perspiciatis quibusdam sint, tempora, velit
+            voluptas?
+          </div>
+        </div>
+      </div>
+      <div class="projects-list">
+        <div class="header">
+          Your requests:
+        </div>
+        <div class="project">
+          <div class="project-info">
+            <div class="name">
+              Project Honeycomb
+            </div>
+            <div class="links">
+              <a class="show" href="#">Show </a>
+              <a class="remove-request" href="#">Leave</a>
+            </div>
+          </div>
+          <div class="description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi atque autem cupiditate dolor dolore
+            ducimus eaque earum eligendi fugit in iste, iusto nulla perspiciatis quibusdam sint, tempora, velit
+            voluptas?
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi atque autem cupiditate dolor dolore
+            ducimus eaque earum eligendi fugit in iste, iusto nulla perspiciatis quibusdam sint, tempora, velit
+            voluptas?
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </div>
 </template>
