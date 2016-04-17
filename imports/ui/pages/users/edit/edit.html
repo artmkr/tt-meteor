@@ -1,0 +1,16 @@
+<template name="editPage">
+  <div class="edit-page">
+    <form>
+      <label for="name">Name</label>
+      <input type="text" name="name" placeholder="Your name" value="{{currentUser.profile.name}}">
+
+      <label for="file-upload" class="file-label">photo upload</label>
+      <input type="file" id="file-upload" name="photo">
+
+      <label for="bio">About</label>
+      <textarea name="bio" id="bio" cols="30" rows="10" placeholder="your bio">{{currentUser.profile.bio}}</textarea>
+
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</template>
