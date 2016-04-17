@@ -5,6 +5,7 @@ import '/imports/ui/pages/users/signin/signin.js'
 import '/imports/ui/pages/users/signup/signup.js'
 import '/imports/ui/pages/users/home/home.js'
 import '/imports/ui/pages/users/edit/edit.js'
+import '/imports/ui/pages/projects/list/list'
 
 import '/imports/ui/layouts/main/main.js'
 
@@ -48,4 +49,12 @@ Router.route('/edit', function () {
   this.render('editPage');
 }, {
   name: 'editPage'
+});
+
+
+Router.route('/projects', function () {
+  this.layout('main');
+  this.render('projects.list');
+}, {
+  name: 'project.list'
 });

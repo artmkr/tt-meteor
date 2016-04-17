@@ -4,98 +4,99 @@
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: flex-start;
-}
 
-.user-info {
-  @include block(40%, 2%, 1%);
-  flex: 1;
-  text-align: center;
-  img {
-    border-radius: 50%;
-    max-width: 50%;
-    height: 80px;
+  .user-info {
+    @include block(40%, 2%, 1%);
+    flex: 1;
+    text-align: center;
+    img {
+      border-radius: 50%;
+      max-width: 50%;
+      height: 80px;
+    }
+    .name {
+      font-size: 1.5em;
+      margin-left: 10px;
+      line-height: 80px;
+    }
+    .info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .links {
+      .messages {
+        @include button-border($dark-color,1px, 0px, 1px, 1px);
+        @extend .button-small;
+      }
+
+      .edit {
+        margin-left: 0px !important;
+        @include button-border($dark-color);
+        @extend .button-small;
+      }
+
+    }
   }
-  .name {
-    font-size: 1.5em;
-    margin-left: 10px;
-    line-height: 80px;
+
+  .user-block {
+    flex: 4;
+    @include block(100%, 1%, 2%);
   }
-  .info {
+
+  .projects-list {
+    padding: 10px 20px;
+
+    .header {
+      color: $dark-accent-color;
+      font-size: 0.95em;
+      padding-bottom: 5px;
+      border-bottom: 1px solid $light-accent-color;
+    }
+  }
+
+  .project {
+    margin: 20px 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  .links {
-    .messages {
-      @include button-border($dark-color,1px, 0px, 1px, 1px);
-      @extend .button-small;
+    flex-direction: row;
+
+    .name {
+      margin-bottom: 10px;
+      font-size: 1.05em;
     }
 
-    .edit {
-      margin-left: 0px !important;
-      @include button-border($dark-color);
-      @extend .button-small;
+    .project-info {
+      width: 200px;
+      padding: 10px;
     }
 
-  }
-}
-
-.user-block {
-  flex: 4;
-  @include block(100%, 1%, 2%);
-}
-
-.projects-list {
-  padding: 10px 20px;
-
-  .header {
-    color: $dark-accent-color;
-    font-size: 0.95em;
-    padding-bottom: 5px;
-    border-bottom: 1px solid $light-accent-color;
-  }
-}
-
-.project {
-  margin: 20px 0;
-  display: flex;
-  flex-direction: row;
-
-  .name {
-    margin-bottom: 10px;
-    font-size: 1.05em;
-  }
-
-  .project-info {
-    width: 200px;
-    padding: 10px;
-  }
-
-  .description {
-    flex: 5;
-    font-size: 0.9em;
-    padding: 10px;
-  }
-
-  .links {
-
-    .show {
-      @include button-border($dark-color, 1px, 0px, 1px, 1px);
-      @extend .button-small;
+    .description {
+      flex: 5;
+      font-size: 0.9em;
+      padding: 10px;
     }
 
-    .messages {
-      margin-left: 0 !important;
-      @include button-border($dark-color);
-      @extend .button-small;
+    .links {
+
+      .show {
+        @include button-border($dark-color, 1px, 0px, 1px, 1px);
+        @extend .button-small;
+      }
+
+      .messages {
+        margin-left: 0 !important;
+        @include button-border($dark-color);
+        @extend .button-small;
+      }
+
+      .remove-request {
+        margin-left: 0 !important;
+        @include button-border($red-color);
+        @extend .button-small;
+      }
     }
 
-    .remove-request {
-      margin-left: 0 !important;
-      @include button-border($red-color);
-      @extend .button-small;
-    }
   }
 
 }

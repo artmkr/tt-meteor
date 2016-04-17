@@ -1,0 +1,42 @@
+.projects-list-page {
+  display: flex;
+  align-items:flex-start;
+  .settings {
+    font-weight: 300;
+    flex: 1;
+    text-align: center;
+    @include block(100%,2%,1%);
+    a {
+      @include button-border-bottom($dark-color);
+      @extend  .button-small;
+    }
+
+  }
+
+  .list {
+    flex: 4;
+    .project{
+      flex: 1;
+      @include block(100%,1%,2%);
+      display: flex;
+
+
+      .info {
+        flex:1;
+        max-width: 200px;
+        .name {
+          font-size: 1.35em;
+          margin-bottom: 10px;
+        }
+        .links a {
+          @include button-border($dark-color);
+          @extend .button-medium;
+        }
+      }
+      .description {
+        font-size: 0.95em;
+        flex:3;
+      }
+    }
+  }
+}
