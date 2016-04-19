@@ -1,0 +1,38 @@
+.projects-new {
+  @include block(100%, 2%, 2%);
+  form {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+
+    textarea[name='short-description'] {
+      resize: none;
+    }
+    .description-block {
+      overflow: hidden;
+      .description {
+        float: left;
+        width: 50%;
+      }
+      #description {
+        resize: none;
+        height: 20em;
+        width: 90%
+      }
+
+      .preview {
+        @extend textarea;
+        width: 50%;
+        height: 20em;
+        float: right;
+        overflow: auto;
+      }
+    }
+
+    button {
+      float: right;
+      @include button-border($dark-color);
+      @extend .button-medium;
+    }
+  }
+}

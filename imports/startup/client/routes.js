@@ -5,7 +5,10 @@ import '/imports/ui/pages/users/signin/signin.js'
 import '/imports/ui/pages/users/signup/signup.js'
 import '/imports/ui/pages/users/home/home.js'
 import '/imports/ui/pages/users/edit/edit.js'
-import '/imports/ui/pages/projects/list/list'
+import '/imports/ui/pages/projects/list/list.js'
+import '/imports/ui/pages/projects/new/new.js'
+
+
 
 import '/imports/ui/layouts/main/main.js'
 
@@ -54,7 +57,18 @@ Router.route('/edit', function () {
 
 Router.route('/projects', function () {
   this.layout('main');
-  this.render('projects.list');
+  this.render('projectsList');
 }, {
-  name: 'project.list'
+  name: 'projectList',
+  waitOn: function () {
+    // return one handle, a function, or an array
+    return Meteor.subscribe('projects');
+  }
+});
+
+Router.route('/projects/new', function () {
+  this.layout('main');
+  this.render('projectsNew');
+}, {
+  name: 'projectsNew'
 });

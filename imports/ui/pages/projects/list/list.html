@@ -1,6 +1,11 @@
-<template name="projects.list">
+<template name="projectsList">
   <div class="projects-list-page">
     <div class="settings">
+      Actions:
+      <br>
+      <br>
+      <a href="{{pathFor 'projectsNew'}}">New Project</a>
+      <br><br>
       Filter:
       <br>
       <br>
@@ -9,45 +14,20 @@
       <a href="#">Relevant</a>
     </div>
     <div class="list">
-      <div class="project">
-        <div class="info">
-          <div class="name">Project Honeycomb</div>
-          <div class="links">
-            <a href="#">Show</a>
-            <a href="#">Join</a>
+      {{#each projects}}
+        <div class="project">
+          <div class="info">
+            <div class="name">{{this.name}}</div>
+            <div class="links">
+              <a href="#">Show</a>
+              <a href="#">Join</a>
+            </div>
+          </div>
+          <div class="description">{{this.shortDescription}}
           </div>
         </div>
-        <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet atque beatae,
-          corporis cum deleniti doloribus esse expedita id illum laboriosam minima molestiae non totam, ut vel veniam?
-          Iure, recusandae.
-        </div>
-      </div>
-      <div class="project">
-        <div class="info">
-          <div class="name">Project Honeycomb</div>
-          <div class="links">
-            <a href="#">Show</a>
-            <a href="#">Join</a>
-          </div>
-        </div>
-        <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet atque beatae,
-          corporis cum deleniti doloribus esse expedita id illum laboriosam minima molestiae non totam, ut vel veniam?
-          Iure, recusandae.
-        </div>
-      </div>
-      <div class="project">
-        <div class="info">
-          <div class="name">Project Honeycomb</div>
-          <div class="links">
-            <a href="#">Show</a>
-            <a href="#">Join</a>
-          </div>
-        </div>
-        <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet atque beatae,
-          corporis cum deleniti doloribus esse expedita id illum laboriosam minima molestiae non totam, ut vel veniam?
-          Iure, recusandae.
-        </div>
-      </div>
+      {{/each}}
+
     </div>
   </div>
 </template>
