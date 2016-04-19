@@ -21,6 +21,6 @@ Meteor.methods({
       team: []
     });
 
-    Projects.insert(project);
+    return Projects.insert(project);
   }
 });

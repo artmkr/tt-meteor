@@ -1,3 +1,20 @@
 .projects-page {
-  @include block(100%,2%,2%);
+  @include block(75%);
+  .header {
+    overflow: hidden;
+    border-bottom: 1px solid $dark-accent-color;
+  }
+  .join {
+    float: right;
+    vertical-align: middle;
+    margin: 10px;
+    @include button-border($dark-color);
+    @extend .button-bigmedium;
+  }
+  .name {
+    font-size: 2.5em;
+  }
+  .description {
+    font-size: 0.95em;
+  }
 }

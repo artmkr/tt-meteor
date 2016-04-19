@@ -64,7 +64,10 @@ Template.projectsNew.events({
       tags: tags
     };
 
-    Meteor.call('createProject',newProject);
+    Meteor.call('createProject',newProject, function(err,id){
+      if(err) alert(err);
+      Router.go('projectsPage',{_id:id})
+    });
 
   }
 });
