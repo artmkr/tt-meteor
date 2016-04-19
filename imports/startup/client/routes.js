@@ -1,4 +1,5 @@
 import { Router } from 'meteor/iron:router';
+import {Projects} from '/imports/api/projects/projects.js';
 
 import '/imports/ui/pages/index/index.js'
 import '/imports/ui/pages/users/signin/signin.js'
@@ -7,11 +8,10 @@ import '/imports/ui/pages/users/home/home.js'
 import '/imports/ui/pages/users/edit/edit.js'
 import '/imports/ui/pages/projects/list/list.js'
 import '/imports/ui/pages/projects/new/new.js'
-
+import '/imports/ui/pages/projects/page/page.js'
 
 
 import '/imports/ui/layouts/main/main.js'
-
 
 
 Router.route('/', function () {
@@ -61,7 +61,6 @@ Router.route('/projects', function () {
 }, {
   name: 'projectList',
   waitOn: function () {
-    // return one handle, a function, or an array
     return Meteor.subscribe('projects');
   }
 });
@@ -71,4 +70,17 @@ Router.route('/projects/new', function () {
   this.render('projectsNew');
 }, {
   name: 'projectsNew'
+});
+
+Router.route('/projects/:_id', function () {
+  this.layout('main');
+  this.render('projectsPage');
+}, {
+  name: 'projectsPage',
+  waitOn: function () {
+    return Meteor.subscribe('project',this.params._id);
+  },
+  data: function () {
+    return Projects.findOne(this.params._id);
+  }
 });
