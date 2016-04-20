@@ -1,20 +1,59 @@
 .projects-page {
-  @include block(75%);
-  .header {
-    overflow: hidden;
-    border-bottom: 1px solid $dark-accent-color;
+  display: flex;
+  .description-block {
+    @include block(70%);
+    flex:4;
+    .header {
+      overflow: hidden;
+      border-bottom: 1px solid $dark-accent-color;
+    }
+    .join {
+      float: right;
+      vertical-align: middle;
+      margin: 10px;
+      @include button-border($dark-color);
+      @extend .button-bigmedium;
+    }
+    .name {
+      font-size: 2.5em;
+    }
+    .description {
+      font-size: 0.95em;
+    }
   }
-  .join {
-    float: right;
-    vertical-align: middle;
-    margin: 10px;
-    @include button-border($dark-color);
-    @extend .button-bigmedium;
-  }
-  .name {
-    font-size: 2.5em;
-  }
-  .description {
-    font-size: 0.95em;
+  .team {
+    @include block(20%);
+    flex:1;
+    max-height: 325px;
+    overflow: auto;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li+li{
+        margin-top: 20px;
+      }
+      .profile {
+       overflow: hidden;
+        .user-pic {
+          float: left;
+          height:50px;
+          border-radius: 50%;
+        }
+        .user-name {
+          font-size: 1.1em;
+          float: left;
+          line-height: 30px;
+          padding-left: 20px;
+        }
+        .role {
+          float: left;
+          color:$light-color;
+          line-height: 20px;
+          font-size: 0.85em;
+          padding-left: 20px;
+        }
+      }
+    }
   }
 }
