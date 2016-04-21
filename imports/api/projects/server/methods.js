@@ -15,7 +15,7 @@ Meteor.methods({
       tags: Array
     });
 
-    project = _.extend(project, {
+    var newProject = _.extend(project, {
       todos: [],
       requests: [],
       team: [Meteor.userId()],
@@ -23,7 +23,38 @@ Meteor.methods({
       createdAt: new Date()
     });
 
-    return Projects.insert(project);
+    var id = Projects.insert(newProject);
+    return id;
+  },
+  'editProject': function (projectId, editedProject) {
+    var currentProject = Projects.findOne({_id: projectId});
+
+    if (!Meteor.userId()) {
+      throw new Meteor.Error("logged-out",
+          "The user must be logged in to create project.");
+    }
+
+    if (!currentProject.isAuthor(Meteor.userId())) {
+      throw new Meteor.Error("not-author",
+          "Only author can edit project");
+    }
+
+    check(editedProject, {
+      name: String,
+      shortDescription: String,
+      description: String,
+      tags: Array
+    });
+
+    Projects.update(projectId, {
+      $set: {
+        name: editedProject.name,
+        shortDescription: editedProject.shortDescription,
+        description: editedProject.description,
+        tags: editedProject.tags
+      }
+    });
+    return currentProject._id;
   },
   'joinProject': function (projectId) {
     var project = Projects.findOne({_id: projectId});

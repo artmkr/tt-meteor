@@ -1,7 +1,9 @@
 .project-edit-page {
   display: flex;
+  flex-wrap:wrap;
+  justify-content: space-around;
   .requests-block {
-    @include block(35%,1%,1%);
+    @include block(35%,2%,1%);
     flex:1;
     max-height: 500px;
     overflow: auto;
@@ -85,5 +87,44 @@
   .settings-block {
     flex: 2;
     @include block(100%,1%,2%)
+  }
+  .edit-block {
+    flex: 2;
+    @include block(100%,2%,2%);
+    form {
+      width: 100%;
+      margin: auto;
+      overflow: hidden;
+
+      textarea[name='short-description'] {
+        resize: none;
+      }
+      .description-block {
+        overflow: hidden;
+        .description {
+          float: left;
+          width: 50%;
+        }
+        #description {
+          resize: none;
+          height: 20em;
+          width: 90%
+        }
+
+        .preview {
+          @extend textarea;
+          width: 50%;
+          height: 20em;
+          float: right;
+          overflow: auto;
+        }
+      }
+
+      button {
+        float: right;
+        @include button-border($dark-color);
+        @extend .button-medium;
+      }
+    }
   }
 }

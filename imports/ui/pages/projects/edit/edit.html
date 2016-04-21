@@ -34,7 +34,39 @@
       Settings goes here
     </div>
     <div class="edit-block">
+      <form>
+        {{#if errorMessages}}
+          <div class="list-errors">
+            {{#each errorMessages}}
+              <div class="list-item">{{this}}</div>
+            {{/each}}
+          </div>
+        {{/if}}
 
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="Project name" value="{{this.name}}">
+
+
+        <label for="short-description">Short description</label>
+      <textarea name="short-description" id="short-description" rows="4"
+                placeholder="Short descirption for your project. Will be at project list">{{this.shortDescription}}</textarea>
+
+        <div class="description-block">
+          <div class="description">
+            <label for="description">Description</label>
+          <textarea name="description" id="description" rows="4"
+                    placeholder="Description for your project. Markdown available. Will be at project page">{{this.description}}</textarea>
+          </div>
+          <label for="preview">Preview</label>
+          <div class="preview">
+            {{#markdown}}{{projectDescription}}{{/markdown}}
+          </div>
+        </div>
+
+        <label for="tags">Tags</label>
+        <input type="text" name="tags" placeholder="Tags separated with comma" value="{{tags}}">
+        <button type="submit">Create</button>
+      </form>
     </div>
   </div>
 </template>

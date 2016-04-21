@@ -10,6 +10,7 @@ import '/imports/ui/pages/projects/list/list.js'
 import '/imports/ui/pages/projects/new/new.js'
 import '/imports/ui/pages/projects/page/page.js'
 import '/imports/ui/pages/projects/edit/edit.js'
+import '/imports/ui/pages/projects/messages/messages.js'
 
 
 import '/imports/ui/layouts/main/main.js'
@@ -93,6 +94,20 @@ Router.route('/projects/:_id/edit', function () {
   name: 'projectEdit',
   waitOn: function () {
     return Meteor.subscribe('project',this.params._id);
+  },
+  data: function () {
+    return Projects.findOne(this.params._id);
+  }
+});
+
+
+Router.route('/projects/:_id/messages', function () {
+  this.layout('main');
+  this.render('projectMessages');
+}, {
+  name: 'projectMessages',
+  waitOn: function () {
+    return Meteor.subscribe('messages',this.params._id);
   },
   data: function () {
     return Projects.findOne(this.params._id);
