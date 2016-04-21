@@ -34,8 +34,6 @@ Template.signup.events({
       Reader.readAsDataURL(File);
     }
 
-    console.log(Reader)
-
     if (!email) {
       errors.email = 'Email is required';
     }
@@ -58,6 +56,21 @@ Template.signup.events({
       return;
     }
 
+    if (!File) {
+      var user = {
+        name: name,
+        email: email,
+        password: password,
+      };
+      Meteor.call('registerUser', user, function (error, userId) {
+        if (error) {
+          alert('Something went wrong \n contact us');
+        } else {
+          Router.go('editPage'); //Go to userpage
+        }
+      });
+    }
+
     Reader.addEventListener("load", function () {
       var user = {
         name: name,
@@ -69,7 +82,7 @@ Template.signup.events({
         if (error) {
           alert('Something went wrong \n contact us');
         } else {
-          Router.go('edit'); //Go to userpage
+          Router.go('editPage'); //Go to userpage
         }
       });
     }, false);

@@ -11,13 +11,13 @@
     text-align: center;
     img {
       border-radius: 50%;
-      max-width: 50%;
+      overflow: hidden;
       height: 80px;
+      width: 80px;
     }
     .name {
       font-size: 1.5em;
       margin-left: 10px;
-      line-height: 80px;
     }
     .info {
       display: flex;
