@@ -1,0 +1,40 @@
+<template name="projectEdit">
+  <div class="project-edit-page">
+    <div class="requests-block">
+      <ul>
+        {{#each requests}}
+          <li>
+            <div class="profile">
+              <img src="{{this.profile.photo}}"
+                   alt="" class="user-pic">
+              <div class="user-name"><a href="#">{{this.profile.name}}</a></div>
+              <a href="#" class="accept">Accept</a>
+              <a href="#" class="decline">Decline</a>
+            </div>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="team-block">
+      <ul>
+        {{#each team}}
+          <li>
+            <div class="profile">
+              <img src="{{this.profile.photo}}"
+                   alt="" class="user-pic">
+              <div class="user-name"><a href="#">{{this.profile.name}}</a></div>
+              <a href="#" class="message">Message</a>
+              <a href="#" class="kick">Kick</a>
+            </div>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="settings-block">
+      Settings goes here
+    </div>
+    <div class="edit-block">
+
+    </div>
+  </div>
+</template>

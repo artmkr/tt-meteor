@@ -38,9 +38,12 @@
         .user-pic {
           float: left;
           height:50px;
+          width: 50px;
           border-radius: 50%;
+          overflow: hidden;
         }
         .user-name {
+          display: block;
           font-size: 1.1em;
           float: left;
           line-height: 30px;

@@ -1,0 +1,89 @@
+.project-edit-page {
+  display: flex;
+  .requests-block {
+    @include block(35%,1%,1%);
+    flex:1;
+    max-height: 500px;
+    overflow: auto;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li+li{
+        margin-top: 20px;
+      }
+      .profile {
+        overflow: hidden;
+        .user-pic {
+          float: left;
+          height:50px;
+          width: 50px;
+          border-radius: 50%;
+          overflow: hidden;
+          margin-right: 20px;
+        }
+        a {
+          display: block;
+        }
+        .user-name {
+          font-size: 1.1em;
+          line-height: 30px;
+        }
+        .accept {
+          @include button-border($dark-color);
+          @extend .button-small;
+          float: left;
+        }
+        .decline {
+          @include button-border($red-color);
+          @extend .button-small;
+          float: left;
+        }
+      }
+    }
+  }
+  .team-block{
+    @include block(35%,1%,1%);
+    flex: 1;
+    max-height: 500px;
+    overflow: auto;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li+li{
+        margin-top: 20px;
+      }
+      .profile {
+        overflow: hidden;
+        .user-pic {
+          float: left;
+          height:50px;
+          width: 50px;
+          border-radius: 50%;
+          overflow: hidden;
+          margin-right: 20px;
+
+        }
+        .user-name {
+          font-size: 1.1em;
+          line-height: 30px;
+        }
+        .message {
+          @include button-border($dark-color);
+          @extend .button-small;
+          float: left;
+        }
+        .kick {
+          @include button-border($red-color);
+          @extend .button-small;
+          float: left;
+        }
+      }
+    }
+  }
+  .settings-block {
+    flex: 2;
+    @include block(100%,1%,2%)
+  }
+}

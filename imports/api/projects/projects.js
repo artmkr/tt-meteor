@@ -24,6 +24,11 @@ Projects.helpers({
       $addToSet: {requests: userId}
     });
   },
+  declineRequest(userId){
+    Projects.update(this._id, {
+      $pull: {requests: userId}
+    });
+  },
   addToTeam(userId){
     if (this.inRequests(userId)) {
       Projects.update(this._id, {
