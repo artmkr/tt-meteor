@@ -102,7 +102,6 @@ Router.route('/projects/:_id/edit', function () {
 
 
 Router.route('/projects/:_id/messages', function () {
-  this.layout('main');
   this.render('projectMessages');
 }, {
   name: 'projectMessages',

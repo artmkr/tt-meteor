@@ -5,7 +5,7 @@ import { Session } from 'meteor/session';
 var ERRORS_KEY = 'joinErrors';
 
 Template.projectEdit.onCreated(function () {
-  if(this.data.requests) {
+  if (this.data.requests) {
     Meteor.subscribe('users', this.data.requests);
     Meteor.subscribe('users', this.data.team);
   }

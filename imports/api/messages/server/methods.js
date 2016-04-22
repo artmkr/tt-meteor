@@ -10,7 +10,6 @@ Meteor.methods({
       throw new Meteor.Error('not-in-team',
           'You must be in team');
     }
-    console.log(message);
 
     var newMessage = {
       text: message,
@@ -18,7 +17,7 @@ Meteor.methods({
       author: Meteor.userId(),
       createdAt: new Date()
     };
-    
+
     Messages.insert(newMessage);
   }
 });

@@ -1,3 +1,48 @@
 <template name="projectMessages">
-  Messages
+  {{>header}}
+  <div class="chat">
+    <div class="messages">
+      <ul class="messages-list">
+        Messages here
+      </ul>
+      <div class="input-box">
+        <textarea name="message" id="message" cols="5"></textarea>
+        <button class="send">Send</button>
+      </div>
+    </div>
+    <div class="team">
+      <ul>
+        <li>
+          <div class="profile">
+            <div class="profile-pic">
+              <img src="http://localhost:3000/avt.png" alt="">
+            </div>
+            <div class="profile-info">
+              <div class="name">
+                Adam Newman
+              </div>
+              <div class="role">
+                Designer
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="profile">
+            <div class="profile-pic">
+              <img src="http://localhost:3000/avt.png" alt="">
+            </div>
+            <div class="profile-info">
+              <div class="name">
+                Adam Newman
+              </div>
+              <div class="role">
+                Designer
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
