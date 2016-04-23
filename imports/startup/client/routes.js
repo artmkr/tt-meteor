@@ -11,6 +11,7 @@ import '/imports/ui/pages/projects/new/new.js'
 import '/imports/ui/pages/projects/page/page.js'
 import '/imports/ui/pages/projects/edit/edit.js'
 import '/imports/ui/pages/projects/messages/messages.js'
+import '/imports/ui/pages/users/page/page.js'
 
 
 import '/imports/ui/layouts/main/main.js'
@@ -41,6 +42,21 @@ Router.route('/signin', function () {
 }, {
   name: 'signin'
 });
+
+
+Router.route('/user/:_id', function () {
+  this.layout('main');
+  this.render('userPage');
+}, {
+  name: 'userPage',
+  waitOn: function () {
+    return Meteor.subscribe('users',[this.params._id]);
+  },
+  data: function () {
+    return Meteor.users.findOne({_id:this.params._id});
+  }
+});
+
 
 Router.route('/home', function () {
   this.layout('main');

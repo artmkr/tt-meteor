@@ -1,0 +1,48 @@
+.user-page {
+  @include block(70%);
+  padding: 20px 40px 30px 40px;
+  .user-info {
+    overflow: hidden;
+    .user-pic {
+      border-radius: 50%;
+      overflow: hidden;
+      height: 80px;
+      width: 80px;
+      float: left;
+      margin: 10px 10px 10px 0;
+    }
+    .user-name {
+      margin: 10px 20px;
+      font-size: 30px;
+    }
+    .send-pm {
+      margin-top: 10px;
+      @include button-border($dark-color);
+      @extend .button-medium;
+    }
+  }
+  .bio {
+    font-size: 20px;
+    padding: 20px 0px;
+  }
+  .projects {
+    h3 {
+      color: $dark-accent-color;
+      font-size: 0.95em;
+      padding-bottom: 5px;
+      border-bottom: 1px solid $light-accent-color;
+    }
+    .project {
+      display: flex;
+      .name {
+        flex: 2;
+        font-size: 1.5em;
+      }
+      .description {
+        font-size: 0.95em;
+        flex: 5;
+      }
+      margin-bottom: 30px;
+    }
+  }
+}

@@ -39,9 +39,9 @@
       }
     }
     .messages-list {
+      margin: 0;
       overflow-y: auto;
       align-self:stretch;
-      margin: 20px 20px 0 20px;
 
       flex: 1;
       list-style: none;
@@ -51,6 +51,7 @@
         margin: 15px 0;
       }
       .message {
+        margin: 20px 20px 10px 20px;
         overflow: hidden;
         .user-pic {
           height: 30px;

@@ -1,0 +1,37 @@
+<template name="userPage">
+  <div class="user-page">
+    <div class="user-info">
+      <img src="{{this.profile.photo}}" alt="" class="user-pic">
+      <div class="user-name">
+        {{this.profile.name}}
+      </div>
+      <a class="send-pm" href="#">Send PM</a>
+    </div>
+    <div class="bio">
+      {{this.profile.bio}}
+    </div>
+    <div class="projects">
+      <h3>Current projects:</h3>
+      <div class="project">
+        <div class="name">
+          <a href="#">Tempel tech</a>
+        </div>
+        <div class="description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias consequatur consequuntur culpa dolor,
+          dolore ducimus est excepturi fuga fugiat iure laudantium libero maxime modi nobis possimus quia velit
+          voluptatem.
+        </div>
+      </div>
+      <div class="project">
+        <div class="name">
+          <a href="#">Tempel tech</a>
+        </div>
+        <div class="description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias consequatur consequuntur culpa dolor,
+          dolore ducimus est excepturi fuga fugiat iure laudantium libero maxime modi nobis possimus quia velit
+          voluptatem.
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
