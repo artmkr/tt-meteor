@@ -80,7 +80,7 @@ Router.route('/projects/:_id', function () {
 }, {
   name: 'projectsPage',
   waitOn: function () {
-    return Meteor.subscribe('project',this.params._id);
+    return Meteor.subscribe('project', this.params._id);
   },
   data: function () {
     return Projects.findOne(this.params._id);
@@ -93,7 +93,7 @@ Router.route('/projects/:_id/edit', function () {
 }, {
   name: 'projectEdit',
   waitOn: function () {
-    return Meteor.subscribe('project',this.params._id);
+    return Meteor.subscribe('project', this.params._id);
   },
   data: function () {
     return Projects.findOne(this.params._id);
@@ -106,7 +106,8 @@ Router.route('/projects/:_id/messages', function () {
 }, {
   name: 'projectMessages',
   waitOn: function () {
-    return Meteor.subscribe('messages',this.params._id);
+    return [Meteor.subscribe('messages', this.params._id, 300),
+      Meteor.subscribe('project', this.params._id)]
   },
   data: function () {
     return Projects.findOne(this.params._id);
