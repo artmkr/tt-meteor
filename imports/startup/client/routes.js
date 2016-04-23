@@ -14,6 +14,9 @@ import '/imports/ui/pages/projects/messages/messages.js'
 import '/imports/ui/pages/users/page/page.js'
 
 
+import '/imports/ui/pages/messages/pm/pm.js'
+import '/imports/ui/pages/messages/pms-list/pms-list.js'
+
 import '/imports/ui/layouts/main/main.js'
 
 
@@ -57,6 +60,25 @@ Router.route('/user/:_id', function () {
   }
 });
 
+Router.route('/messages', function () {
+  this.layout('main');
+  this.render('privateMessagesList');
+}, {
+  name: 'privateMessagesList',
+  data: function () {
+    return Meteor.users.findOne({_id:this.params._id});
+  }
+});
+
+Router.route('/messages/:_id', function () {
+  this.layout('main');
+  this.render('privateMessage');
+}, {
+  name: 'privateMessage',
+  data: function () {
+    return Meteor.users.findOne({_id:this.params._id});
+  }
+});
 
 Router.route('/home', function () {
   this.layout('main');

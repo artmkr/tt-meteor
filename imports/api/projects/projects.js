@@ -23,10 +23,16 @@ Projects.helpers({
     Projects.update(this._id, {
       $addToSet: {requests: userId}
     });
+    Meteor.users.update(userId, {
+      $addToSet: {requests: this._id}
+    })
   },
   declineRequest(userId){
     Projects.update(this._id, {
       $pull: {requests: userId}
+    });
+    Meteor.users.update(userId, {
+      $pull: {requests: this._id}
     });
   },
   addToTeam(userId){
@@ -34,10 +40,16 @@ Projects.helpers({
       Projects.update(this._id, {
         $pull: {requests: userId}
       });
+      Meteor.users.update(userId, {
+        $pull: {requests: this._id}
+      });
     }
 
     Projects.update(this._id, {
       $addToSet: {team: userId}
     });
+    Meteor.users.update(userId, {
+      $addToSet: {projects: this._id}
+    })
   }
 });
