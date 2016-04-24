@@ -18,6 +18,7 @@ import '/imports/ui/pages/messages/pm/pm.js'
 import '/imports/ui/pages/messages/pms-list/pms-list.js'
 
 import '/imports/ui/layouts/main/main.js'
+import '/imports/ui/layouts/pms/pms.js'
 
 
 Router.route('/', function () {
@@ -61,8 +62,8 @@ Router.route('/user/:_id', function () {
 });
 
 Router.route('/messages', function () {
-  this.layout('main');
-  this.render('privateMessagesList');
+  this.layout('privateMessagesLayout');
+  this.render('privateMessagesList')
 }, {
   name: 'privateMessagesList',
   data: function () {
@@ -71,8 +72,9 @@ Router.route('/messages', function () {
 });
 
 Router.route('/messages/:_id', function () {
-  this.layout('main');
-  this.render('privateMessage');
+  this.layout('privateMessagesLayout');
+  this.render('privateMessage')
+
 }, {
   name: 'privateMessage',
   data: function () {

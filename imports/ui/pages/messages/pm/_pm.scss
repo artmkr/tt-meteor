@@ -1,0 +1,101 @@
+.messages-block {
+  .messages {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+
+    .messages-list {
+      margin: 0;
+      overflow-y: auto;
+
+      flex: 1;
+      list-style: none;
+      padding: 0;
+
+      li + li {
+        margin: 15px 0;
+      }
+      .others {
+        .user-pic {
+          float: left;
+          margin-right: 20px;
+        }
+        .message-box {
+          float: left;
+        }
+        a {
+          color: $red-color;
+        }
+        a:hover {
+          color: $red-accent-color;
+        }
+      }
+      .my {
+        .user-pic {
+          margin-left: 20px;
+          float: right;
+        }
+        .message-box {
+          float: right;
+        }
+        a {
+          color: $primary-accent-color;
+        }
+        a:hover {
+          color: $primary-color;
+        }
+      }
+      .message {
+        margin: 20px 20px 10px 20px;
+        overflow: hidden;
+        .user-pic {
+          height: 30px;
+          width: 30px;
+          border-radius: 5%;
+        }
+        .messager-name {
+          display: block;
+          font-size: 1em;
+          margin-bottom: 10px;
+        }
+        .message-time {
+          color: #ccc;
+          float: right;
+        }
+        .message-text {
+          font-size: 0.95em;
+        }
+        .message-box {
+          padding: 5px 15px 10px 15px;
+          background-color: $light-accent-color;
+          min-width: 30%;
+          max-width: 80%;
+        }
+      }
+    }
+    .input-message-box {
+      min-height: 7em;
+      padding: 10px 10px 0 10px;
+      background-color: $white-color;
+      border-top: 1px solid $light-color;
+      display: flex;
+      flex-direction: row;
+      #message {
+        flex: 1;
+        align-self: flex-end;
+        height: 6em;
+        resize: none;
+        margin: 10px;
+      }
+      #send {
+        align-self: flex-end;
+        @include button-border($dark-accent-color);
+        @extend .button-medium;
+        margin: 10px;
+        &:hover {
+          background-color: $dark-color;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<template name="privateMessagesLayout">
+  {{>header }}
+  <div class="private-messages-list">
+    <div class="messager-list-block">
+      <div class="profile">
+        <img src="http://localhost:3000/avt.png" alt="">
+        <a class="name" href="#">Mickey</a>
+        <div class="unreaded">5 unreaded messages</div>
+      </div>
+      <div class="profile">
+        <img src="http://localhost:3000/avt.png" alt="">
+        <a class="name" href="#">Mickey</a>
+        <div class="unreaded">5 unreaded messages</div>
+      </div>
+      <div class="profile">
+        <img src="http://localhost:3000/avt.png" alt="">
+        <a class="name" href="#">Mickey</a>
+        <div class="unreaded">5 unreaded messages</div>
+      </div>
+      <div class="profile">
+        <img src="http://localhost:3000/avt.png" alt="">
+        <a class="name" href="#">Mickey</a>
+        <div class="unreaded">5 unreaded messages</div>
+      </div>
+    </div>
+    <div class="messages-block">
+      {{>yield}}
+    </div>
+  </div>
+</template>
