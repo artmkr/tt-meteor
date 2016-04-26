@@ -45,6 +45,9 @@ Template.projectMessages.helpers({
   },
   teammate: function () {
     return Meteor.users.find({_id: {$in: this.team}});
+  },
+  userpic: function () {
+    return Meteor.users.findOne({_id:this.author}).profile.photo;
   }
 });
 

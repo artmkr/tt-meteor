@@ -3,11 +3,10 @@
     <div class="user-info">
       <div class="info">
         <img src="{{currentUser.profile.photo}}" alt="">
-
         <span class="name">{{currentUser.profile.name}}</span>
       </div>
       <div class="links">
-        <a class="messages" href="#">Messages </a>
+        <a class="messages" href="{{pathFor 'privateMessagesList'}}">Messages </a>
         <a class="edit" href="{{pathFor 'editPage'}}">edit profile</a>
       </div>
     </div>
@@ -16,71 +15,42 @@
         <div class="header">
           Your projects:
         </div>
-        <div class="project">
-          <div class="project-info">
-            <div class="name">
-              Project Honeycomb
+        {{# each projects}}
+          <div class="project">
+            <div class="project-info">
+              <div class="name">
+                <a href="{{pathFor 'projectsPage'}}">{{this.name}}</a>
+              </div>
+              <div class="links">
+                <a class="messages" href="{{pathFor 'projectMessages'}}">Messages </a>
+              </div>
             </div>
-            <div class="links">
-              <a class="show" href="#">Show </a>
-              <a class="messages" href="#">Messages </a>
-            </div>
-          </div>
-          <div class="description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi atque autem cupiditate dolor dolore
-            ducimus eaque earum eligendi fugit in iste, iusto nulla perspiciatis quibusdam sint, tempora, velit
-            voluptas?
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi atque autem cupiditate dolor dolore
-            ducimus eaque earum eligendi fugit in iste, iusto nulla perspiciatis quibusdam sint, tempora, velit
-            voluptas?
-          </div>
-        </div>
-        <div class="project">
-          <div class="project-info">
-            <div class="name">
-              Project Honeycomb
-            </div>
-            <div class="links">
-              <a class="show" href="#">Show </a>
-              <a class="messages" href="#">Messages </a>
+            <div class="description">
+              {{this.shortDescription}}
             </div>
           </div>
-          <div class="description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi atque autem cupiditate dolor dolore
-            ducimus eaque earum eligendi fugit in iste, iusto nulla perspiciatis quibusdam sint, tempora, velit
-            voluptas?
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi atque autem cupiditate dolor dolore
-            ducimus eaque earum eligendi fugit in iste, iusto nulla perspiciatis quibusdam sint, tempora, velit
-            voluptas?
-          </div>
-        </div>
+        {{/each}}
       </div>
       <div class="projects-list">
         <div class="header">
           Your requests:
         </div>
-        <div class="project">
-          <div class="project-info">
-            <div class="name">
-              Project Honeycomb
+        {{#each requests}}
+          <div class="project">
+            <div class="project-info">
+              <div class="name">
+                <a href="{{pathFor 'projectsPage'}}">{{this.name}}</a>
+              </div>
+              <div class="links">
+                <a class="remove-request" href="#">Leave</a>
+              </div>
             </div>
-            <div class="links">
-              <a class="show" href="#">Show </a>
-              <a class="remove-request" href="#">Leave</a>
+            <div class="description">
+              {{this.shortDescription}}
             </div>
           </div>
-          <div class="description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi atque autem cupiditate dolor dolore
-            ducimus eaque earum eligendi fugit in iste, iusto nulla perspiciatis quibusdam sint, tempora, velit
-            voluptas?
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi atque autem cupiditate dolor dolore
-            ducimus eaque earum eligendi fugit in iste, iusto nulla perspiciatis quibusdam sint, tempora, velit
-            voluptas?
-          </div>
-        </div>
-
+        {{/each}}
       </div>
-
     </div>
   </div>
 </template>

@@ -94,8 +94,8 @@
       }
       #send {
         align-self: flex-end;
-        @include button-border($dark-accent-color);
         @extend .button-medium;
+        @include button-border($dark-accent-color);
         margin: 10px;
         &:hover {
           background-color: $dark-color;

@@ -22,6 +22,9 @@ import '/imports/ui/layouts/pms/pms.js'
 
 
 Router.route('/', function () {
+  if (Meteor.user()) {
+    Router.go('home');
+  }
   this.render('index');
 }, {
   name: 'index'
@@ -86,7 +89,13 @@ Router.route('/home', function () {
   this.layout('main');
   this.render('home');
 }, {
-  name: 'home'
+  name: 'home',
+  data: function () {
+    return Meteor.users.findOne(Meteor.userId());
+  },
+  waitOn: function () {
+    return Meteor.subscribe('users',[Meteor.userId()]);
+  }
 });
 
 Router.route('/edit', function () {
@@ -101,9 +110,9 @@ Router.route('/projects', function () {
   this.layout('main');
   this.render('projectsList');
 }, {
-  name: 'projectList',
+  name: 'projectsList',
   waitOn: function () {
-    return Meteor.subscribe('projects');
+    return Meteor.subscribe('projects-count',100);
   }
 });
 

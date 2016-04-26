@@ -18,12 +18,13 @@ Meteor.methods({
     var newProject = _.extend(project, {
       todos: [],
       requests: [],
-      team: [Meteor.userId()],
+      team: [],
       authorId: Meteor.userId(),
       createdAt: new Date()
     });
 
     var id = Projects.insert(newProject);
+    Meteor.call('addToTeam',id,Meteor.userId());
     return id;
   },
   'editProject': function (projectId, editedProject) {
@@ -98,7 +99,7 @@ Meteor.methods({
           "The user must be logged in to create project.");
     }
 
-    if (!project.isAuthor(Meteor.userId())) {
+    if (!project.isAuthor(Meteor.userId()) && !(Meteor.userId() == userId)) {
       throw new Meteor.Error("not-author",
           "Only author can add to team");
     }

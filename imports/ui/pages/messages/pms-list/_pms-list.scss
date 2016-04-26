@@ -1,0 +1,11 @@
+.private-messages-select {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .message {
+    padding-bottom: 10%;
+    font-size: 3em;
+    color: $light-color;
+  }
+}

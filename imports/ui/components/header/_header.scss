@@ -4,7 +4,7 @@
   background: $dark-color;
   font-family: $primary-font;
   margin: 0;
-  .brand a{
+  .brand a {
     font-family: $head-font;
     line-height: 50px;
     font-size: 2em;
@@ -12,7 +12,7 @@
     padding-left: 15px;
     color: $white-color;
     &:hover {
-      color:$light-color;
+      color: $light-color;
     }
   }
   .links {
@@ -20,9 +20,11 @@
     padding-right: 10px;
   }
   .links a {
+
     line-height: 50px;
     vertical-align: middle;
     @include button-border($white-color);
     @extend .button-medium;
+    margin-right: 10px;
   }
 }

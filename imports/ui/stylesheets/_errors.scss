@@ -1,0 +1,9 @@
+.list-errors {
+  .list-item {
+    color: $red-color;
+    margin: 20px 0;
+  }
+  .list-item::before {
+    content: "▪ ";
+  }
+}

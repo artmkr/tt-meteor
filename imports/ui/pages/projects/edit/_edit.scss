@@ -37,7 +37,7 @@
           float: left;
         }
         .decline {
-          @include button-border($red-color);
+          @include button-border($red-color,1px,1px,1px,0px);
           @extend .button-small;
           float: left;
         }
@@ -77,7 +77,7 @@
           float: left;
         }
         .kick {
-          @include button-border($red-color);
+          @include button-border($red-color,1px,1px,1px,0px);
           @extend .button-small;
           float: left;
         }

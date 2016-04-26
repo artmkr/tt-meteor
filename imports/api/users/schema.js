@@ -20,5 +20,9 @@ export default UserSchema = new SimpleSchema({
   photo : {
     type: String,
     optional: true
+  },
+  photoInfo : {
+    type: Object,
+    optional: true
   }
 });

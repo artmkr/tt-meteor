@@ -1,28 +1,27 @@
 .projects-list-page {
   display: flex;
-  align-items:flex-start;
+  align-items: flex-start;
   .settings {
     font-weight: 300;
     flex: 1;
     text-align: center;
-    @include block(100%,2%,1%);
+    @include block(100%, 2%, 1%);
     a {
       @include button-border-bottom($dark-color);
-      @extend  .button-small;
+      @extend .button-small;
     }
 
   }
 
   .list {
     flex: 4;
-    .project{
+    .project {
       flex: 1;
-      @include block(100%,1%,2%);
+      @include block(100%, 1%, 2%);
       display: flex;
 
-
       .info {
-        flex:1;
+        flex: 1;
         max-width: 200px;
         .name {
           font-size: 1.75em;
@@ -33,10 +32,13 @@
           @include button-border($dark-color);
           @extend .button-medium;
         }
+        .links a+a {
+          margin-left: 10px;
+        }
       }
       .description {
         font-size: 1.25em;
-        flex:3;
+        flex: 3;
       }
     }
   }

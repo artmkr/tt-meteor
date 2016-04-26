@@ -29,7 +29,8 @@ Template.editPage.events({
         var user = {
           name: name,
           bio: bio,
-          photo: Reader.result
+          photo: Reader.result,
+          photoInfo:file.name
         };
         Meteor.call('editUser', user, function (error, userId) {
           if (error) {
@@ -41,7 +42,7 @@ Template.editPage.events({
       }, false);
 
 
-      Reader.readAsDataURL(file);
+      Reader.readAsBinaryString(file);
     }
   }
 });

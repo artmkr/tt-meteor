@@ -5,9 +5,9 @@
       <ul class="messages-list">
         {{#each messages}}
           <li class="message {{#if mine}}my{{else}}others{{/if}}">
-            <img class="user-pic" src="http://localhost:3000/avt.png">
+            <img class="user-pic" src="{{userpic}}">
             <div class="message-box ">
-              <a class="messager-name " href="#">
+              <a class="messager-name " href="{{pathFor 'userPage' _id=this.author}}">
                 {{authorName}}
               </a>
               <span class="message-time">{{time this.createdAt}}</span>
@@ -33,10 +33,12 @@
               </div>
               <div class="profile-info">
                 <div class="name">
-                  {{this.profile.name}}
+                  <a href="{{pathFor 'userPage'}}">
+                    {{this.profile.name}}
+                  </a>
                 </div>
                 <div class="role">
-                  Designer
+
                 </div>
               </div>
             </div>
