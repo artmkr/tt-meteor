@@ -90,6 +90,26 @@ Meteor.methods({
 
     project.addToTeam(userId);
   },
+  'kickFromProject': function (projectId, userId) {
+    var project = Projects.findOne({_id: projectId});
+
+    if (!Meteor.userId()) {
+      throw new Meteor.Error("logged-out",
+          "The user must be logged in to create project.");
+    }
+
+    if (!project.isAuthor(Meteor.userId())) {
+      throw new Meteor.Error("not-author",
+          "Only author can add to team");
+    }
+
+    if(project.isAuthor(userId)) {
+      throw new Meteor.Error("cant-kick-author",
+          "You can't kick author");
+    }
+
+    project.removeFromTeam(userId);
+  },
   'declineRequest': function (projectId, userId) {
     var project = Projects.findOne({_id: projectId});
 

@@ -5,7 +5,11 @@
       <div class="user-name">
         {{this.profile.name}}
       </div>
-      <a class="send-pm" href="#">Send PM</a>
+    {{#if notCurrent}}
+      <a class="send-pm" href="{{pathFor 'privateMessage'}}">Send PM</a>
+    {{else}}
+      <a class="send-pm" href="{{pathFor 'editPage'}}">Edit</a>
+    {{/if}}
     </div>
     <div class="bio">
       {{this.profile.bio}}

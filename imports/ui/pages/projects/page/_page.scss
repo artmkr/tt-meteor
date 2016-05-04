@@ -3,7 +3,7 @@
   align-items: flex-start;
   .description-block {
     @include block(70%);
-    flex:4;
+    flex: 4;
     .header {
       overflow: hidden;
       border-bottom: 1px solid $dark-accent-color;
@@ -15,7 +15,14 @@
       @include button-border($dark-color);
       @extend .button-bigmedium;
     }
-    .messages,.edit {
+    .remove-request {
+      float: right;
+      vertical-align: middle;
+      margin: 10px;
+      @include button-border($red-color);
+      @extend .button-medium;
+    }
+    .messages, .edit {
       float: right;
       vertical-align: middle;
       margin: 10px;
@@ -31,22 +38,22 @@
   }
   .team {
     @include block(20%);
-    flex:1;
+    flex: 1;
     max-height: 325px;
     overflow: auto;
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      li+li{
+      li + li {
         margin-top: 20px;
       }
       .profile {
         margin-bottom: 20px;
-       overflow: hidden;
+        overflow: hidden;
         .user-pic {
           float: left;
-          height:50px;
+          height: 50px;
           width: 50px;
           border-radius: 50%;
           overflow: hidden;
@@ -60,7 +67,7 @@
         }
         .role {
           float: left;
-          color:$light-color;
+          color: $light-color;
           line-height: 20px;
           font-size: 0.85em;
           padding-left: 20px;

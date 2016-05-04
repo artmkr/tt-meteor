@@ -9,11 +9,16 @@ Template.projectMessages.onCreated(function () {
   }
 });
 
-Template.projectMessages.onRendered (function () {
-  Tracker.autorun(function () {
-    console.log('hello');
-    $('#messages-list').animate({scrollTop: $("#messages-list")[0].scrollHeight});
+Meteor.autosubscribe(function() {
+  Messages.find().observe({
+    added: function(item){
+      $('#messages-list').animate({scrollTop: $("#messages-list")[0].scrollHeight});
+    }
   });
+});
+
+Template.projectMessages.onRendered(function () {
+  $('#messages-list').animate({scrollTop: $("#messages-list")[0].scrollHeight});
 });
 
 

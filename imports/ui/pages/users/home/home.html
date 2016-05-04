@@ -3,7 +3,7 @@
     <div class="user-info">
       <div class="info">
         <img src="{{currentUser.profile.photo}}" alt="">
-        <span class="name">{{currentUser.profile.name}}</span>
+        <a href="{{pathFor 'userPage'}}" class="name">{{currentUser.profile.name}}</a>
       </div>
       <div class="links">
         <a class="messages" href="{{pathFor 'privateMessagesList'}}">Messages </a>

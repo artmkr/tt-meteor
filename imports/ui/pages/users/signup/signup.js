@@ -63,7 +63,8 @@ Template.signup.events({
         if (error) {
           alert('Something went wrong \n contact us');
         } else {
-          Router.go('editPage'); //Go to userpage
+          Meteor.loginWithPassword(email, password);
+          Router.go('about'); //Go to userpage
         }
       });
     } else {
@@ -80,12 +81,12 @@ Template.signup.events({
           if (error) {
             alert('Something went wrong \n contact us');
           } else {
-            Router.go('editPage'); //Go to userpage
+            Meteor.loginWithPassword(email, password);
+            Router.go('about'); //Go to userpage
           }
         });
       }, false);
       Reader.readAsBinaryString(File);
     }
-
   }
 });

@@ -15,6 +15,12 @@
 
   .list {
     flex: 4;
+    .load-more {
+      @include button-border($dark-accent-color);
+      @extend .button-large;
+      width: 60%;
+      margin: 10px 20%;
+    }
     .project {
       flex: 1;
       @include block(100%, 1%, 2%);
@@ -32,7 +38,7 @@
           @include button-border($dark-color);
           @extend .button-medium;
         }
-        .links a+a {
+        .links a + a {
           margin-left: 10px;
         }
       }

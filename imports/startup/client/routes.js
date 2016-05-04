@@ -119,7 +119,8 @@ Router.route('/projects', function () {
 }, {
   name: 'projectsList',
   waitOn: function () {
-    return Meteor.subscribe('projects-count', 100);
+    return [Meteor.subscribe('projects-count', 10),
+      Meteor.subscribe('user', Meteor.userId())];
   }
 });
 
@@ -136,7 +137,8 @@ Router.route('/projects/:_id', function () {
 }, {
   name: 'projectsPage',
   waitOn: function () {
-    return Meteor.subscribe('project', this.params._id);
+    return [Meteor.subscribe('project', this.params._id),
+      Meteor.subscribe('user', Meteor.userId())];
   },
   data: function () {
     return Projects.findOne(this.params._id);
@@ -149,7 +151,7 @@ Router.route('/projects/:_id/edit', function () {
 }, {
   name: 'projectEdit',
   waitOn: function () {
-    return Meteor.subscribe('project', this.params._id);
+    return Meteor.subscribe('project', this.params._id)
   },
   data: function () {
     return Projects.findOne(this.params._id);
@@ -171,14 +173,12 @@ Router.route('/projects/:_id/messages', function () {
 });
 
 
-
 Router.route('/about', function () {
   this.layout('main');
   this.render('about');
 }, {
   name: 'about',
 });
-
 
 
 Router.route('/contact', function () {

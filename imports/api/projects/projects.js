@@ -51,5 +51,13 @@ Projects.helpers({
     Meteor.users.update(userId, {
       $addToSet: {projects: this._id}
     })
+  },
+  removeFromTeam(userId){
+    Projects.update(this._id, {
+      $pull: {team: userId}
+    });
+    Meteor.users.update(userId, {
+      $pull: {projects: this._id}
+    })
   }
 });

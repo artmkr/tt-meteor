@@ -16,6 +16,20 @@ Template.privateMessage.helpers({
   }
 });
 
+
+Meteor.autosubscribe(function() {
+  PrivateMessages.find().observe({
+    added: function(item){
+      $('.messages-list').animate({scrollTop: $(".messages-list")[0].scrollHeight});
+    }
+  });
+});
+
+Template.privateMessage.onRendered(function () {
+  $('.messages-list').animate({scrollTop: $(".messages-list")[0].scrollHeight});
+});
+
+
 Template.privateMessage.events({
   'click #send': function () {
     var message = $('[name=message]').val();

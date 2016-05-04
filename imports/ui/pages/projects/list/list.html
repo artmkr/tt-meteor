@@ -19,15 +19,14 @@
           <div class="info">
             <div class="name"><a href="{{pathFor 'projectsPage'}}">{{this.name}}</a></div>
             <div class="links">
-              <a href="{{pathFor 'projectsPage'}}">Show</a>
-              <a href="#" class="join">Join</a>
+              {{#if notInProject}}<a href="#" class="join">Join</a>{{/if}}
             </div>
           </div>
           <div class="description">{{this.shortDescription}}
           </div>
         </div>
       {{/each}}
-
+      <button class="load-more">Load more</button>
     </div>
   </div>
 </template>

@@ -32,6 +32,9 @@ Template.projectEdit.events({
   },
   'click .decline': function (event, template) {
     Meteor.call('declineRequest', template.data._id, this._id)
+  },
+  'click .kick': function (event, template) {
+    Meteor.call('kickFromProject', template.data._id, this._id)
   }
 });
 
