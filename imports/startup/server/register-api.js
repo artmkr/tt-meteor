@@ -8,3 +8,8 @@ import '../../api/users/server/publications.js';
 import '../../api/messages/messages.js';
 import '../../api/messages/server/methods.js';
 import '../../api/messages/server/publications.js';
+
+
+import '../../api/privateMessages/pms.js';
+import '../../api/privateMessages/server/publications.js';
+import '../../api/privateMessages/server/methods.js';

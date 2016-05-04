@@ -6,10 +6,10 @@
     <div class="links">
 
       {{#if currentUser}}
-        <a href="{{pathFor 'signin'}}">Home</a>
+        <a href="{{pathFor 'home'}}">Home</a>
         <a href="{{pathFor 'projectsList'}}">Projects</a>
-        <a href="{{pathFor 'signin'}}">About</a>
-        <a href="{{pathFor 'signin'}}">Contact</a>
+        <a href="{{pathFor 'about'}}">About</a>
+        <a href="{{pathFor 'contact'}}">Contact</a>
       {{else}}
         <a href="{{pathFor 'signin'}}">Sign in</a>
         <a href="{{pathFor 'signup'}}">Sign Up</a>

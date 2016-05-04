@@ -2,26 +2,15 @@
   {{>header }}
   <div class="private-messages-list">
     <div class="messager-list-block">
-      <div class="profile">
-        <img src="http://localhost:3000/avt.png" alt="">
-        <a class="name" href="#">Mickey</a>
-        <div class="unreaded">5 unreaded messages</div>
-      </div>
-      <div class="profile">
-        <img src="http://localhost:3000/avt.png" alt="">
-        <a class="name" href="#">Mickey</a>
-        <div class="unreaded">5 unreaded messages</div>
-      </div>
-      <div class="profile">
-        <img src="http://localhost:3000/avt.png" alt="">
-        <a class="name" href="#">Mickey</a>
-        <div class="unreaded">5 unreaded messages</div>
-      </div>
-      <div class="profile">
-        <img src="http://localhost:3000/avt.png" alt="">
-        <a class="name" href="#">Mickey</a>
-        <div class="unreaded">5 unreaded messages</div>
-      </div>
+      {{#each userList}}
+        <a href="{{pathFor 'privateMessage'}}">
+          <div class="profile">
+            <img src="{{this.profile.photo}}" alt="">
+            <a class="name" href="{{pathFor 'userPage'}}">{{this.profile.name}}</a>
+            <!--<div class="unreaded">5 unreaded messages</div>-->
+          </div>
+        </a>
+      {{/each}}
     </div>
     <div class="messages-block">
       {{>yield}}

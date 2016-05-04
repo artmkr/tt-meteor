@@ -2,7 +2,7 @@
   {{>header}}
   <div class="chat">
     <div class="messages">
-      <ul class="messages-list">
+      <ul id="messages-list">
         {{#each messages}}
           <li class="message {{#if mine}}my{{else}}others{{/if}}">
             <img class="user-pic" src="{{userpic}}">

@@ -2,16 +2,20 @@ import { Router } from 'meteor/iron:router';
 import {Projects} from '/imports/api/projects/projects.js';
 
 import '/imports/ui/pages/index/index.js'
+import '/imports/ui/pages/single/about/about.js'
+import '/imports/ui/pages/single/contact/contact.js'
+
 import '/imports/ui/pages/users/signin/signin.js'
 import '/imports/ui/pages/users/signup/signup.js'
 import '/imports/ui/pages/users/home/home.js'
 import '/imports/ui/pages/users/edit/edit.js'
+import '/imports/ui/pages/users/page/page.js'
+
 import '/imports/ui/pages/projects/list/list.js'
 import '/imports/ui/pages/projects/new/new.js'
 import '/imports/ui/pages/projects/page/page.js'
 import '/imports/ui/pages/projects/edit/edit.js'
 import '/imports/ui/pages/projects/messages/messages.js'
-import '/imports/ui/pages/users/page/page.js'
 
 
 import '/imports/ui/pages/messages/pm/pm.js'
@@ -57,10 +61,10 @@ Router.route('/user/:_id', function () {
 }, {
   name: 'userPage',
   waitOn: function () {
-    return Meteor.subscribe('users',[this.params._id]);
+    return Meteor.subscribe('user', this.params._id);
   },
   data: function () {
-    return Meteor.users.findOne({_id:this.params._id});
+    return Meteor.users.findOne({_id: this.params._id});
   }
 });
 
@@ -69,8 +73,8 @@ Router.route('/messages', function () {
   this.render('privateMessagesList')
 }, {
   name: 'privateMessagesList',
-  data: function () {
-    return Meteor.users.findOne({_id:this.params._id});
+  waitOn: function () {
+    return Meteor.subscribe('privateMessagesList');
   }
 });
 
@@ -80,8 +84,11 @@ Router.route('/messages/:_id', function () {
 
 }, {
   name: 'privateMessage',
+  waitOn: function () {
+    return [Meteor.subscribe('privateMessagesWith', this.params._id), Meteor.subscribe('user', this.params._id)];
+  },
   data: function () {
-    return Meteor.users.findOne({_id:this.params._id});
+    return Meteor.users.findOne({_id: this.params._id});
   }
 });
 
@@ -94,7 +101,7 @@ Router.route('/home', function () {
     return Meteor.users.findOne(Meteor.userId());
   },
   waitOn: function () {
-    return Meteor.subscribe('users',[Meteor.userId()]);
+    return Meteor.subscribe('user', Meteor.userId());
   }
 });
 
@@ -112,7 +119,7 @@ Router.route('/projects', function () {
 }, {
   name: 'projectsList',
   waitOn: function () {
-    return Meteor.subscribe('projects-count',100);
+    return Meteor.subscribe('projects-count', 100);
   }
 });
 
@@ -161,4 +168,22 @@ Router.route('/projects/:_id/messages', function () {
   data: function () {
     return Projects.findOne(this.params._id);
   }
+});
+
+
+
+Router.route('/about', function () {
+  this.layout('main');
+  this.render('about');
+}, {
+  name: 'about',
+});
+
+
+
+Router.route('/contact', function () {
+  this.layout('main');
+  this.render('contact');
+}, {
+  name: 'contact'
 });

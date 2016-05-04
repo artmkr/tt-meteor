@@ -69,7 +69,6 @@ Meteor.methods({
           "The user already in team");
     }
     if (project.inRequests(userId)) {
-      console.log('error');
       throw new Meteor.Error("already-in-requests",
           "The user already send request");
     }

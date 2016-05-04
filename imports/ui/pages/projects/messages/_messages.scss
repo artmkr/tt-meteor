@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: row;
   .messages {
+    max-width: 75%;
     flex: 5;
     display: flex;
     flex-direction: column;
@@ -38,7 +39,7 @@
         color: $primary-color;
       }
     }
-    .messages-list {
+    #messages-list {
       margin: 0;
       overflow-y: auto;
       align-self:stretch;
@@ -68,7 +69,9 @@
           float: right;
         }
         .message-text {
+          word-wrap: break-word;
           font-size: 0.95em;
+          max-width: 100%;
         }
         .message-box {
           padding:5px 15px 10px 15px;

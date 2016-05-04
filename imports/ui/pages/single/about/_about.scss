@@ -1,0 +1,9 @@
+.about-block {
+  @include block(100%,2%,2%);
+  a {
+    color:$primary-color;
+  }
+  a:hover {
+    color:$primary-accent-color;
+  }
+}

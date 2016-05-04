@@ -1,10 +1,7 @@
 import './messages.html';
 import {Messages} from '/imports/api/messages/messages';
+import { Tracker } from 'meteor/tracker'
 
-
-Tracker.afterFlush(function () {
-
-});
 
 Template.projectMessages.onCreated(function () {
   if (this.data.team) {
@@ -12,14 +9,13 @@ Template.projectMessages.onCreated(function () {
   }
 });
 
-Template.projectMessages.onRendered(function () {
-
-  this.autorun(function () {
-    Tracker.afterFlush(function () {
-      $('.messages-list').scrollTop($('.messages-list').prop("scrollHeight"));
-    });
+Template.projectMessages.onRendered (function () {
+  Tracker.autorun(function () {
+    console.log('hello');
+    $('#messages-list').animate({scrollTop: $("#messages-list")[0].scrollHeight});
   });
 });
+
 
 Template.projectMessages.helpers({
   messages: function () {
@@ -29,7 +25,8 @@ Template.projectMessages.helpers({
     return this.author == Meteor.userId();
   },
   authorName: function () {
-    return Meteor.users.findOne({_id: this.author}).profile.name
+    //return Meteor.users.findOne({_id: this.author}).profile.name
+    return 'Adam';
   },
   time: function (date) {
     var d = new Date(date);
@@ -47,7 +44,7 @@ Template.projectMessages.helpers({
     return Meteor.users.find({_id: {$in: this.team}});
   },
   userpic: function () {
-    return Meteor.users.findOne({_id:this.author}).profile.photo;
+    return Meteor.users.findOne({_id: this.author}).profile.photo;
   }
 });
 
@@ -55,5 +52,6 @@ Template.projectMessages.events({
   'click #send': function () {
     var message = $('[name=message]').val();
     Meteor.call('sendMessage', this._id, message);
+    $('[name=message]').val('');
   }
 });

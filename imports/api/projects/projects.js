@@ -6,8 +6,8 @@ Projects.helpers({
   author() {
     return Meteor.users.findOne(this.authorId);
   },
-  isAuthor() {
-    return this.authorId == Meteor.userId();
+  isAuthor(id) {
+    return this.authorId == id;
   },
   inTeam(userId) {
     return _.find(this.team, (item)=> {
