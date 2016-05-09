@@ -1,10 +1,13 @@
 <template name="header">
   <div class="header-component">
     <div class="brand">
-      <a href="{{pathFor 'home'}}">Tempel</a>
+      {{#if currentUser}}
+        <a href="{{pathFor 'home'}}">Tempel</a>
+      {{else}}
+        <a href="{{pathFor 'index'}}">Tempel</a>
+      {{/if}}
     </div>
     <div class="links">
-
       {{#if currentUser}}
         <a href="{{pathFor 'home'}}">Home</a>
         <a href="{{pathFor 'projectsList'}}">Projects</a>

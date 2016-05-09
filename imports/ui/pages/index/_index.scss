@@ -65,7 +65,7 @@ body, html {
     margin: auto;
   }
 
-  .header-landing .brand {
+  .header-landing .brand a {
     font-family: $head-font;
     color: $white-color;
     font-size: 2em;
@@ -99,5 +99,6 @@ body, html {
   .login {
     @extend .button-large;
     @include button-border($white-color, 1px);
+    margin-left: 10px;
   }
 }
