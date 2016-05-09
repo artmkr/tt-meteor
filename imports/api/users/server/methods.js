@@ -18,18 +18,13 @@ Meteor.methods({
 
     if (userId) {
       var fs = Npm.require("fs");
-      var base = process.env.PWD;
 
       if (user.photoInfo) {
-        var filepath = '/photos/' + userId.toString() + '.' + user.photoInfo.split('.').pop()
-        fs.writeFile(base + '/public' + filepath, new Buffer(user.photo, 'binary'), function (error) {
-          if (error) console.log(error);
-        });
-        Meteor.users.update(userId, {
+        Meteor.users.update(Meteor.userId(), {
           $set: {
-            'profile.photo': filepath
+            'profile.photo': user.photo
           }
-        });
+        })
       }
       else {
         Meteor.users.update(userId, {
@@ -73,16 +68,9 @@ Meteor.methods({
 
 
     if (user.photoInfo) {
-      var fs = Npm.require("fs");
-      var base = process.env.PWD;
-      var filepath = '/photos/' + Meteor.userId() + '.' + user.photoInfo.split('.').pop()
-      fs.writeFile(base + '/public' + filepath, new Buffer(user.photo, 'binary'), function (error) {
-        if (error) console.log(error);
-      });
-
       Meteor.users.update(Meteor.userId(), {
         $set: {
-          'profile.photo': filepath
+          'profile.photo': user.photo
         }
       })
     }

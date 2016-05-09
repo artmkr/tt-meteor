@@ -86,7 +86,7 @@ Template.signup.events({
           }
         });
       }, false);
-      Reader.readAsBinaryString(File);
+      Reader.readAsDataURL(File);
     }
   }
 });

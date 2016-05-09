@@ -42,7 +42,7 @@ Template.editPage.events({
       }, false);
 
 
-      Reader.readAsBinaryString(file);
+      Reader.readAsDataURL(file);
     }
   }
 });
