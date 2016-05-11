@@ -30,8 +30,7 @@ Template.projectMessages.helpers({
     return this.author == Meteor.userId();
   },
   authorName: function () {
-    //return Meteor.users.findOne({_id: this.author}).profile.name
-    return 'Adam';
+    return Meteor.users.findOne({_id: this.author}).profile.name;
   },
   time: function (date) {
     var d = new Date(date);

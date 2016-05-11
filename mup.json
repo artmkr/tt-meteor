@@ -4,7 +4,7 @@
     {
       "host": "108.61.189.219",
       "username": "tempel-host",
-      "password": "",
+      "password": "ud10g5Izi9",
       // or pem file (ssh based authentication)
       // WARNING: Keys protected by a passphrase are not supported
       //"pem": "~/.ssh/id_rsa"
