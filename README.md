@@ -1,1 +1,1 @@
-# tempel-tech
+# tt build with Meteor.js
